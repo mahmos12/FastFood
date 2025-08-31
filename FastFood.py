@@ -170,62 +170,63 @@ class Order:
 # print(mahdiOrder.getTotalPrice())
 
 
-# # -------- MAIN --------
+# -------- MAIN --------
 
-# # 1. 
-# print("Välj leveransmetod:")
-# for dt in DeliveryType:
-#     print(f"{dt.name} ({dt.value} kr)")
-# delivery_choice = input("Skriv typ (Bike/MotorCycle/Car/Drone): ").strip()
-# delivery_type = DeliveryType[delivery_choice].value
+# 1. 
+print("Välj leveransmetod:")
+for dt in DeliveryType:
+    print(f"{dt.name} ({dt.value} kr)")
+delivery_choice = input("Skriv typ (Bike/MotorCycle/Car/Drone): ").strip()
+delivery_type = DeliveryType[delivery_choice].value
 
-# order = Order(delivery_type)
+order = Order(delivery_type)
 
-# # 2. Välj pizzastorlek
-# print("\nVälj pizzastorlek:")
-# for ps in PizzaSize:
-#     print(f"{ps.name} (storleksfaktor: {ps.value})")
-# pizza_choice = input("Skriv storlek (Small/Medium/Larg): ").strip()
-# pizza_size = PizzaSize[pizza_choice].value
+# 2. Välj pizzastorlek
+print("\nVälj pizzastorlek:")
+for ps in PizzaSize:
+    print(f"{ps.name} (storleksfaktor: {ps.value})")
+pizza_choice = input("Skriv storlek (Small/Medium/Larg): ").strip()
+pizza_size = PizzaSize[pizza_choice].value
 
-# pizza = Pizza(pizza_size)
+pizza = Pizza(pizza_size)
 
-# # 3. Lägg till ingredienser
-# while True:
-#     ingredient = input("\nLägg till ingrediens (Tomato/Mashroom/Chiken/Chikebham/Beef/Cheese) eller 'klar' för att avsluta: ").strip()
-#     if ingredient.lower() == "klar":
-#         break
+# 3. Lägg till ingredienser
+while True:
+    ingredient = input("\nLägg till ingrediens (Tomato/Mashroom/Chiken/Chikebham/Beef/Cheese) eller 'klar' för att avsluta: ").strip()
+    if ingredient.lower() == "klar":
+        break
 
-#     weight = int(input("Ange vikt (gram): "))
+    weight = int(input("Ange vikt (gram): "))
 
-#     if ingredient == "Tomato":
-#         pizza.addContent(Tomato(weight))
-#     elif ingredient == "Mashroom":
-#         canned = input("Är den konserverad? (ja/nej): ").lower() == "ja"
-#         pizza.addContent(Mashroom(weight, canned))
-#     elif ingredient == "Chiken":
-#         pizza.addContent(Chiken(weight))
-#     elif ingredient == "Chikebham":
-#         pizza.addContent(Chikebham(weight))
-#     elif ingredient == "Beef":
-#         pizza.addContent(Beef(weight))
-#     elif ingredient == "Cheese":
-#         pizza.addContent(Cheese(weight))
-#     else:
-#         print("Okänd ingrediens.")
+    if ingredient.lower() == "Tomato":
+        pizza.addContent(Tomato(weight))
+    elif ingredient.lower() == "Mashroom":
+        canned = input("Är den konserverad? (ja/nej): ").lower() == "ja"
+        pizza.addContent(Mashroom(weight, canned))
+    elif ingredient == "Chiken":
+        pizza.addContent(Chiken(weight))
+    elif ingredient == "Chikebham":
+        pizza.addContent(Chikebham(weight))
+    elif ingredient == "Beef":
+        pizza.addContent(Beef(weight))
+    elif ingredient == "Cheese":
+        pizza.addContent(Cheese(weight))
+    else:
+        print("Okänd ingrediens.")
 
-# # Lägg till pizzan i ordern
-# order.addItem(pizza)
+# Lägg till pizzan i ordern
+order.addItem(pizza)
 
-# # 4. Lägg till dryck
-# add_drink = input("\nVill du ha en dryck? (ja/nej): ").lower() == "ja"
-# if add_drink:
-#     weight = int(input("Ange mängd (cl): "))
-#     soda = input("Är det läsk? (ja/nej): ").lower() == "ja"
-#     order.addItem(Drink(weight, soda))
+# 4. Lägg till dryck
+add_drink = input("\nVill du ha en dryck? (ja/nej): ").lower() == "ja"
+if add_drink:
+    weight = int(input("Ange mängd (cl): "))
+    soda = input("Är det läsk? (ja/nej): ").lower() == "ja"
+    order.addItem(Drink(weight, soda))
 
-# # 5. Skriv ut totalpris
-# print("\n--- Order Sammanfattning ---")
-# print(f"Totalpris: {order.getTotalPrice()} kr")
+# 5. Skriv ut totalpris
+print("\n--- Order Sammanfattning ---")
+print(f"Totalpris: {order.getTotalPrice()} kr")
+
 
 
